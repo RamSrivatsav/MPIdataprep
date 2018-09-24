@@ -64,7 +64,7 @@ def main():
 
     global data_loader
     if args.dataset_name == 'MPI_Sintel':
-        from MPI.MPI_loader import MPI_loader
+        from MPI_loader import MPI_loader
         data_loader = MPI_loader(args.dataset_dir, split='eigen', cam_dir=args.cam_dir, img_height=args.img_height, img_width=args.img_width, seq_length=args.seq_length)
     Parallel(n_jobs=args.num_threads)(delayed(dump_example)(n) for n in range(data_loader.num_train))
 
